@@ -1,4 +1,4 @@
-package com.tonigdev.portfolio.model;
+package com.tonigdev.portfolio.model.entities;
 
 import java.time.LocalDateTime;
 
@@ -17,22 +17,21 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 @Entity
-@Table(name = "Skill_User")
-public class SkillUser {
+@Table(name = "external_link")
+public class ExternalLink {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_user", nullable = false)
-	private User user;
+	@Column(nullable = false, length = 100, unique = true)
+	private String name;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_skill", nullable = false)
-	private Skill skill;
+	@Column(nullable = false, length = 100)
+	private String url;
 	
-	private String level;
+	@Column(length = 100)
+	private String iconUrl;
 	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
@@ -40,4 +39,7 @@ public class SkillUser {
 	@Column(name = "updated_at" , nullable = false)
 	private LocalDateTime updatedAt;
 	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "id_user", nullable = false)
+	private User user;
 }

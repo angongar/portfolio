@@ -1,4 +1,4 @@
-package com.tonigdev.portfolio.model;
+package com.tonigdev.portfolio.model.entities;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -38,7 +38,7 @@ public class User {
 	@Column(length = 20)
 	private String phone;
 	
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 100, unique = true)
 	private String email;
 	
 	@Column(length = 100)

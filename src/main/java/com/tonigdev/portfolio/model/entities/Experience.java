@@ -1,4 +1,4 @@
-package com.tonigdev.portfolio.model;
+package com.tonigdev.portfolio.model.entities;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

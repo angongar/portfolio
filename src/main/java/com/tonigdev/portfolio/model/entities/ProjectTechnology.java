@@ -1,4 +1,4 @@
-package com.tonigdev.portfolio.model;
+package com.tonigdev.portfolio.model.entities;
 
 import java.time.LocalDateTime;
 
@@ -11,33 +11,29 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
 @Entity
-@Table(name = "project")
-public class Project {
+@Table(name = "Project_Technology", uniqueConstraints = {
+		@UniqueConstraint(columnNames = {"id_project", "id_technology"})
+})
+public class ProjectTechnology {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false, length = 100)
-	private String name;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "id_project", nullable = false)
+	private Project project;
 	
-	@Column(length = 100)
-	private String url;
-	
-	@Column(length = 100)
-	private String company;
-	
-	@Column(nullable = false)
-	private String description;
-	
-	@Column(nullable = false)
-	private boolean highlighted;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "id_technology", nullable = false)
+	private Technology technology;
 	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
@@ -45,11 +41,4 @@ public class Project {
 	@Column(name = "updated_at" , nullable = false)
 	private LocalDateTime updatedAt;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "id_user", nullable = false)
-	private User user;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "id_category", nullable = false)
-	private Category category;
 }

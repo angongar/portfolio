@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:text="${pageTitle}">Home</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    <header>
+    </header>
+
+    <main>
+        <h1 th:text="${pageTitle}">Home</h1>
+        
+        <div th:replace="${content}"></div>
+    </main>
+
+    <footer>
+        <p>© 2025 Toni's Portfolio</p>
+    </footer>
+</body>
+</html>

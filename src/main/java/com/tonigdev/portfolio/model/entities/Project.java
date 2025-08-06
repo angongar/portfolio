@@ -1,4 +1,4 @@
-package com.tonigdev.portfolio.model;
+package com.tonigdev.portfolio.model.entities;
 
 import java.time.LocalDateTime;
 
@@ -17,20 +17,27 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 @Entity
-@Table(name = "Project_Technology")
-public class ProjectTechnology {
+@Table(name = "project")
+public class Project {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "id_project", nullable = false)
-	private Project project;
+	@Column(nullable = false, length = 100, unique = true)
+	private String name;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "id_technology", nullable = false)
-	private Technology technology;
+	@Column(length = 100)
+	private String url;
+	
+	@Column(length = 100)
+	private String company;
+	
+	@Column(nullable = false)
+	private String description;
+	
+	@Column(nullable = false)
+	private boolean highlighted;
 	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
@@ -38,4 +45,11 @@ public class ProjectTechnology {
 	@Column(name = "updated_at" , nullable = false)
 	private LocalDateTime updatedAt;
 	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "id_user", nullable = false)
+	private User user;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "id_type", nullable = false)
+	private ProjectType projectType;
 }

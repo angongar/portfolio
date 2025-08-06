@@ -1,5 +1,6 @@
-package com.tonigdev.portfolio.model;
+package com.tonigdev.portfolio.model.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -17,21 +18,27 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 @Entity
-@Table(name = "external_links")
-public class ExternalLink {
+@Table(name = "education")
+public class Education {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(nullable = false, length = 100)
-	private String name;
+	private String title;
+	
+	@Column(name = "date_start", nullable = false)
+	private LocalDate dateStart;
+	
+	@Column(name = "date_end")
+	private LocalDate dateEnd;
 	
 	@Column(nullable = false, length = 100)
-	private String url;
+	private String center;
 	
-	@Column(length = 100)
-	private String iconUrl;
+	@Column(nullable = false)
+	private String description;
 	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
