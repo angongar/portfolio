@@ -30,6 +30,11 @@ public class UserServiceImpl implements UserService{
 		return userRepository.findByEmail(email);
 	}
 
+	@Override
+	public Optional<User> getUser() {
+		return userRepository.findAll().stream().findFirst();
+	}
+
 
 
 }

@@ -1,0 +1,17 @@
+<!--/* footer.html */-->
+<footer th:fragment="footer" id="portfolio-footer" class="bg-dark text-center py-3">
+	<div class="container">
+    	<p class="text-primary" th:text="#{footer.info.text}"></p>
+		<div th:if="${links != null and not #lists.isEmpty(links)}">
+			<ul class="links">
+				<li th:each="link : ${links}">
+					<a th:href="${link.url}" target="_blank">
+						<img th:if="${link.iconUrl != null and link.iconUrl != ''}" class="text-primary" th:src="@{${link.iconUrl}}" alt="#{image.logo.alt}"/>
+						<div th:text="${link.name}" class="text-primary"></div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+</footer>

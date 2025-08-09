@@ -15,6 +15,7 @@ public class AboutController {
 	
 	@GetMapping
 	public String about(Model model) {
+		model.addAttribute("currentPage", "about");
 		return "about";
 	}
 }

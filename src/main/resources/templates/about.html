@@ -1,23 +1,18 @@
+<!-- home.html -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<html lang="es"
+      layout:decorate="~{fragments/main_layout}"
+      th:with="currentPage=${#messages.msg('about.page.id')}, pageTitle=${#messages.msg('about.page.title')}">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title th:text="${pageTitle}">About Me</title>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <title th:text="#{general.app.name}"></title>
 </head>
+
 <body>
-    <header>
-    </header>
-
-    <main>
-        <h1 th:text="${pageTitle}">About Me</h1>
-        
-        <div th:replace="${content}"></div>
+    <main layout:fragment="content" class="container">
+        <div>
+            <p>About</p>
+        </div>
     </main>
-
-    <footer>
-        <p>© 2025 Toni's Portfolio</p>
-    </footer>
 </body>
 </html>

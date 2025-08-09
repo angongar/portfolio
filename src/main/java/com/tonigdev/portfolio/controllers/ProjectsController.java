@@ -14,6 +14,7 @@ public class ProjectsController {
 
 	@GetMapping
 	public String projects(Model model) {
+		model.addAttribute("currentPage", "projects");
 		return "projects";
 	}
 }

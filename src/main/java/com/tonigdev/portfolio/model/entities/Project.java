@@ -1,6 +1,7 @@
 package com.tonigdev.portfolio.model.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -33,6 +36,9 @@ public class Project {
 	@Column(length = 100)
 	private String company;
 	
+	@Column(name= "image_url" , length = 100)
+	private String imageUrl;
+	
 	@Column(nullable = false)
 	private String description;
 	
@@ -52,4 +58,8 @@ public class Project {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "id_type", nullable = false)
 	private ProjectType projectType;
+	
+	@ManyToMany
+	@JoinTable(name = "Project_Technology", joinColumns = @JoinColumn(name = "id_project"), inverseJoinColumns = @JoinColumn(name = "id_technology"))
+	private List<Technology> technologies;
 }

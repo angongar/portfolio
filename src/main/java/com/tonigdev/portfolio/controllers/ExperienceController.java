@@ -9,11 +9,12 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/experience")
+@RequestMapping("/cv")
 public class ExperienceController {
 
 	@GetMapping
 	public String experience(Model model) {
+		model.addAttribute("currentPage", "experience");
 		return "experience";
 	}
 	

@@ -14,6 +14,7 @@ public class ContactController {
 	
 	@GetMapping
 	public String contact(Model model) {
+		model.addAttribute("currentPage", "contact");
 		return "contact";
 	}
 
