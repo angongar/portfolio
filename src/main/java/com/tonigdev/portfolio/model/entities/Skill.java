@@ -25,9 +25,6 @@ public class Skill {
 	@Column(nullable = false, length = 100, unique = true)
 	private String name;
 	
-	@Column(name = "icon_url", length = 100)
-	private String iconUrl;
-	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
 	

@@ -65,6 +65,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+    		<groupId>nz.net.ultraq.thymeleaf</groupId>
+    		<artifactId>thymeleaf-layout-dialect</artifactId>
+		</dependency>
+		<dependency>
     		<groupId>org.postgresql</groupId>
     		<artifactId>postgresql</artifactId>
     		<version>42.7.3</version>

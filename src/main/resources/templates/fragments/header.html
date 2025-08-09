@@ -1,0 +1,17 @@
+<!-- header.html -->
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 bg-dark">
+	<div class="container d-flex flex-wrap justify-content-between align-items-center">
+		<a th:href="#{link.page.home}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+			<img th:src="@{#{image.logo.tonidev}}" alt="#{image.logo.alt}" width="50" height="50" class="me-2" />
+		    <span class="fs-4 text-primary" th:text="#{general.app.name}"></span> 
+		</a>
+			
+		<ul class="nav nav-pills">
+		    <li class="nav-item"><a th:href="#{link.page.home}" class="nav-link" th:classappend="${currentPage == 'home'} ? ' active'" aria-current="page" th:text="#{menu.home.text}"></a></li>
+		    <li class="nav-item"><a th:href="#{link.page.about}" class="nav-link" th:classappend="${currentPage == 'about'}	? ' active'" th:text="#{menu.about.text}"></a></li>
+			<li class="nav-item"><a th:href="#{link.page.experience}" class="nav-link" th:classappend="${currentPage == 'experience'} ? ' active'" th:text="#{menu.experience.text}"></a></li>
+		    <li class="nav-item"><a th:href="#{link.page.projects}" class="nav-link" th:classappend="${currentPage == 'projects'} ? ' active'" th:text="#{menu.projects.text}"></a></li>
+		    <li class="nav-item"><a th:href="#{link.page.contact}" class="nav-link" th:classappend="${currentPage == 'contact'} ? ' active'" th:text="#{menu.contact.text}"></a></li>
+		</ul>
+	</div> 
+</header>

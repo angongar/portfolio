@@ -33,6 +33,9 @@ public class Experience {
 	
 	@Column(name = "date_end")
 	private LocalDate dateEnd;
+
+	@Column(nullable = false, length = 100)
+	private String location;
 	
 	@Column(nullable = false, length = 100)
 	private String company;

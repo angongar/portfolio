@@ -1,23 +1,82 @@
+<!-- home.html -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<html lang="es"
+      layout:decorate="~{#{link.fragment.mainlayout}}"
+      th:with="currentPage=${#messages.msg('home.page.id')}, pageTitle=${#messages.msg('home.tab.title')}">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title th:text="${pageTitle}">Home</title>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <title th:text="#{general.app.name}"></title>
 </head>
+
 <body>
-    <header>
-    </header>
+    <main layout:fragment="content" class="container my-5">
+		
+		<h1 class="title" th:text="#{home.page.title}"></h1>
+		
+		<!-- Saludo -->
+		<div id="greeting" class="form-card">		
+			<h2 th:text="#{home.greeting.title}"></h2>
+			<p th:text="${profile.greeting}"></p>
+		</div>
+		
+		<!-- Presentacion -->
+		<div id="presentation" class="form-card">	
+			<h2 th:text="#{home.presentation.title}"></h2>
+			<p th:text="${profile.presentation}"></p>
+			<a class="btn btn-primary" th:href="@{#{link.page.about}}" th:text="#{home.link.about}"></a>	
+		</div>
+		
+		<!-- Resumen experiencia -->
+		<div id="experience" class="form-card">		
+			<h2 th:text="#{home.experience.title}"></h2>
+			<p th:text="${profile.experience}"></p>
+			<a class="btn btn-primary" th:href="@{#{link.page.experience}}" th:text="#{home.link.experience}"></a>				
+		</div>
+		
+		<!-- Logros -->
+		<!--<div id="achievements" class="form-card">
+							
+		</div>-->
+		
+		<!-- Proyectos recientes -->
+		<div id="lastProjects" class="form-card" th:if="${projects != null and not #lists.isEmpty(projects)}">
+			<h2 th:text="#{home.projects.title}"></h2>
+			
+			<div class="row my-5">
+				<div class="col-auto" th:each="project : ${projects}">
+					<div class="card">
+						<div class="card-body d-flex flex-column justify-content-between">
+							<div th:if="${project.url != null and project.url != ''}">
+								<a th:href="${project.url}" target="_blank">
+									<img th:if="${project.imageUrl != null and project.imageUrl != ''}"
+										th:src="@{@{project.imageUrl}}" alt="#{home.projects.image.alt}" class="img-fluid mb-3"/>
+									<h3 th:text="${project.name}"></h3>
+									<p th:text="${project.description}"></p>
+								</a>
+							</div>	
 
-    <main>
-        <h1 th:text="${pageTitle}">Home</h1>
-        
-        <div th:replace="${content}"></div>
+							
+							<div th:unless="${project.url != null and project.url != ''}">
+								<h3 th:text="${project.name}"></h3>
+								<p th:text="${project.description}"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<a class="btn btn-primary" th:href="@{#{link.page.projects}}" th:text="#{home.link.projects}"></a>									
+		</div>
+		
+		<!-- Objetivos ano -->
+		<!--<div id="goals">
+									
+		</div>-->
+		<!-- Contact -->
+		<div id="contact" class="form-card">		
+			<h2 th:text="#{home.contact.title}"></h2>
+			<a class="btn btn-primary" th:href="@{#{link.page.contact}}" th:text="#{home.link.contact}"></a>												
+		</div>
     </main>
-
-    <footer>
-        <p>© 2025 Toni's Portfolio</p>
-    </footer>
 </body>
 </html>

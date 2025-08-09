@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+	
+<head th:replace="~{#{link.fragment.head} :: head(${pageTitle})}"></head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header th:replace="~{#{link.fragment.header} :: header}"></header>
+	
+    <main layout:fragment="content" class="flex-fill container mt-4"></main>
+
+    <footer th:replace="~{#{link.fragment.footer} :: footer}"></footer>
+	
+	<script th:src="@{#{link.js.bootstrap}}"></script>	
+	
+</body>
+</html>

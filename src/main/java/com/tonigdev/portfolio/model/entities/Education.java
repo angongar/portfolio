@@ -33,12 +33,12 @@ public class Education {
 	
 	@Column(name = "date_end")
 	private LocalDate dateEnd;
+
+	@Column(nullable = false, length = 100)
+	private String location;
 	
 	@Column(nullable = false, length = 100)
 	private String center;
-	
-	@Column(nullable = false)
-	private String description;
 	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;

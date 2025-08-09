@@ -35,6 +35,12 @@ public class Profile {
 	@Column(name = "image_url", length = 100)
 	private String imageUrl;
 	
+	private String greeting;
+	
+	private String presentation;
+	
+	private String experience;	
+	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
 	

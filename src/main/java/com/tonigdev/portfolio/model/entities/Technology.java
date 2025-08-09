@@ -1,12 +1,14 @@
 package com.tonigdev.portfolio.model.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -33,4 +35,7 @@ public class Technology {
 
 	@Column(name = "updated_at", nullable = false)
 	private LocalDateTime updatedAt;
+	
+	@ManyToMany(mappedBy = "technologies")
+	private List<Project> projects;
 }
