@@ -25,9 +25,8 @@ public class Profile {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
+	@Column(length = 150)
 	private String bio;
-	
 	
 	@Column(name = "cv_url", length = 100)
 	private String cvUrl;

@@ -5,8 +5,11 @@
 
 <body class="d-flex flex-column min-vh-100">
     <header th:replace="~{#{link.fragment.header} :: header}"></header>
-	
-    <main layout:fragment="content" class="flex-fill container mt-4"></main>
+	<div class="d-flex mt-4 mb-4">
+		<div th:replace="~{#{link.fragment.profile} :: profileCard}"></div>
+			
+		<main layout:fragment="content" class="flex-fill container mt-4"></main>
+	</div>
 
     <footer th:replace="~{#{link.fragment.footer} :: footer}"></footer>
 	
