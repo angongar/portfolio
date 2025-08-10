@@ -43,7 +43,7 @@
 									<div>
 										<span th:each="userTech, iStat : ${entry.value}">
 											<span th:text="${userTech.name}"></span>
-											<span th:if="${!iStat.last}" th:text="#{general.text.separator}"></span>
+											<span th:if="${!iStat.last}" th:text="#{general.pipe.separator}"></span>
 										</span>
 									</div>										
 								</div>

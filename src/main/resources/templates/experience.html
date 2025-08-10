@@ -10,9 +10,27 @@
 
 <body>
     <main layout:fragment="content" class="container">
-        <div>
-            <p>CV</p>
+        <div id="educations" class="form-card" th:if="${educations != null and not #lists.isEmpty(educations)}">
+			<h2 th:text="#{experience.educations.title}"></h2>
+			
+			<ul>
+				<li th:each="education, iStat: ${educations}" th:classappend="${!iStat.last} ? 'educationElement'">
+					<span th:text="${education.formattedText}"></span>
+				</li>
+			</ul>
+			
         </div>
+		
+		<div id="experiences" class="form-card" th:if="${experiences != null and not #lists.isEmpty(experiences)}">
+			<h2 th:text="#{experience.experience.title}"></h2>
+					
+			<ul>
+				<li th:each="experience, iStat: ${experiences}" th:classappend="${!iStat.last} ? 'experienceElement'">
+					<span th:text="${experience.formattedText}"></span>
+				</li>
+			</ul>
+					
+		</div>
     </main>
 </body>
 </html>

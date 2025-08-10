@@ -191,3 +191,29 @@
 	height: 24px;
 	object-fit: contain;
 }
+
+#educations ul,
+#experiences ul{
+	border-left: 1px solid #ccc;
+}
+
+#educations li,
+#experiences li{
+	padding: 20px 0;
+}
+
+#educations ul, li,
+#experiences ul, li{
+	margin: 20px 0;
+	text-align: left;
+	text-decoration: none;
+}
+
+
+.educationElement,
+.experienceElement{
+	border-bottom: 1px solid #ccc;
+}
+
+
+
