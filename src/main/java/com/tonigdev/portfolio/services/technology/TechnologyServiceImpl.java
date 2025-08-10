@@ -26,4 +26,9 @@ public class TechnologyServiceImpl implements TechnologyService {
 		return technologyRepository.findByProjectId(idproject);
 	}
 
+	@Override
+	public List<Technology> findByTechnologyTypeId(Long idtype) {
+		return technologyRepository.findByTechnologyTypeId(idtype);
+	}
+
 }
