@@ -29,5 +29,13 @@ public interface TechnologyRepository extends JpaRepository<Technology, Long>{
 	 */
 	@Query("SELECT t FROM Technology t JOIN t.projects p WHERE p.id = :idproject")
 	public List<Technology> findByProjectId(@Param("idproject") Long idproject);
+	
+	/**
+	 * Busqueda de las tecnologias pertenecientes a un tipo
+	 * @param iduser
+	 * @return devuelve listado de tecnologias de un tipo
+	 */
+	@Query("SELECT t FROM Technology t JOIN t.technologyType tt WHERE tt.id = :idtype")
+	public List<Technology> findByTechnologyTypeId(@Param("idtype") Long idtype);
 
 }

@@ -10,5 +10,7 @@ public interface TechnologyService {
 	Optional<Technology> findByName(String name);
 	
 	List<Technology> findByProjectId(Long idproject);
+	
+	List<Technology> findByTechnologyTypeId(Long idtype);
 
 }

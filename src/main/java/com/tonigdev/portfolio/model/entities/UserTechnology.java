@@ -5,42 +5,38 @@ import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
 @Entity
-@Table(name = "profile")
-public class Profile {
-	
+@Table(name = "User_Technology", uniqueConstraints = {
+		@UniqueConstraint(columnNames = {"id_user", "id_technology"})
+})
+public class UserTechnology {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(length = 150)
-	private String bio;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "id_user", nullable = false)
+	private User user;
 	
-	@Column(name = "cv_url", length = 100)
-	private String cvUrl;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "id_technology", nullable = false)
+	private Technology technology;
 	
-	@Column(name = "image_url", length = 100)
-	private String imageUrl;
-	
-	private String greeting;
-	
-	private String presentation;
-	
-	private String experience;	
-	
-	private String history;	
+	@Column(length = 100)
+	private String level;
 	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
@@ -48,8 +44,4 @@ public class Profile {
 	@Column(name = "updated_at" , nullable = false)
 	private LocalDateTime updatedAt;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_user", nullable = false, foreignKey = @ForeignKey(name = "fk_user"), unique = true)
-	private User user;
-
 }
