@@ -44,6 +44,9 @@ public class User {
 	@Column(length = 100)
 	private String location;
 	
+	@Column(name="job_title", length = 100)
+	private String jobTitle;
+	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
 	

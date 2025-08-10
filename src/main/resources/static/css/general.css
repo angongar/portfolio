@@ -99,5 +99,56 @@
 	margin-top: 5px;
 }
 
+.profileCard {
+	border-right: 1px solid #ccc;
+	width: 500px;
+	height: 100%;
+	padding: 20px;
+	background-color: #fff;
+	font-family: 'Arial', sans-serif;
+}
 
+.profileCard h2{
+	margin-top: 30px;
+	font-size: 1.5rem;
+	text-align: left;
+	padding-left: 40px;
+	font-weight: bold;
+}
 
+.profileCard h3{
+	font-size: 1.2rem;
+	text-align: left;
+	padding-left: 40px;
+}
+
+.profileCard p{
+	margin: 30px 0;
+	font-size: 1rem;
+	text-align: left;
+	padding-left: 40px;
+}
+
+.profileImg{
+	display: block;
+	margin: 0 auto 15px;
+	width: 400px;
+	border-radius: 50%;
+	padding-left: 40px;
+}
+
+.profileLinks {
+	padding-left: 40px;
+}
+
+.profileLinks a{
+	margin: 0 10px;
+	text-decoration: none;
+	color:#0366d6;
+}
+
+.linkIcon{
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+}
