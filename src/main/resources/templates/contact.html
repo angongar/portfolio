@@ -10,9 +10,30 @@
 
 <body>
     <main layout:fragment="content" class="container">
-        <div>
-            <p>Contacto</p>
-        </div>
+		<form th:action="@{/contact}" method="post" th:object="${contactDto}">
+			<div th:replace="~{#{link.success.form} :: successForm}"></div>
+			<div th:replace="~{#{link.error.form} :: errorForm}"></div>
+			<h1 class="title" th:text="#{home.page.title}"></h1>
+			
+	        <div class="form-card contact-form">
+					<h2 th:text="#{contact.form.title}" class="mb-4"></h2>
+					<div>
+						<input class="form-control mb-4" type="text" th:field="*{name}" th:placeholder="#{contact.form.name}" th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'"/>
+					</div>				
+					<div>
+						<input class="form-control mb-4" type="email" th:field="*{email}" th:placeholder="#{contact.form.email}" th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'" />				
+					</div>
+					<div>
+						<input class="form-control mb-4" type="text" th:field="*{subject}" th:placeholder="#{contact.form.subject}" th:classappend="${#fields.hasErrors('subject')} ? 'is-invalid'" />				
+					</div>
+					<div>
+						<textarea rows="3" class="form-control mb-4" th:field="*{message}" type="text" th:placeholder="#{contact.form.message}" th:classappend="${#fields.hasErrors('message')} ? 'is-invalid'"></textarea>								
+					</div>
+					<div>
+						<button class="btn btn-primary mb-4" type="submit" th:text="#{contact.form.send}" />												
+					</div>			
+	        </div>
+		</form>
     </main>
 </body>
 </html>
