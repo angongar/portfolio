@@ -264,4 +264,11 @@
 	width: 90%;
 }
 
+.card-img-top {
+	height: 260px;
+	object-fit: cover;
+	width: 100%;
+}
+
+
 
