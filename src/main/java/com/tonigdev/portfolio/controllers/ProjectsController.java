@@ -9,9 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tonigdev.portfolio.model.entities.ExternalLink;
 import com.tonigdev.portfolio.model.entities.Profile;
+import com.tonigdev.portfolio.model.entities.Project;
+import com.tonigdev.portfolio.model.entities.ProjectType;
 import com.tonigdev.portfolio.model.entities.User;
 import com.tonigdev.portfolio.services.externallink.ExternalLinkService;
 import com.tonigdev.portfolio.services.profile.ProfileService;
+import com.tonigdev.portfolio.services.project.ProjectService;
+import com.tonigdev.portfolio.services.projecttype.ProjectTypeService;
 import com.tonigdev.portfolio.services.user.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,15 +28,22 @@ public class ProjectsController {
 	private final UserService userService;
 	private final ProfileService profileService;
 	private final ExternalLinkService externalLinkService;
-
+	private final ProjectTypeService projectTypeService;
+	private final ProjectService projectService;
+	
 	@GetMapping
 	public String projects(Model model) {
 		User user = userService.getUser().get();
 		Profile profile = profileService.findByUserId(user.getId()).get();
 		List<ExternalLink> links = externalLinkService.findByUserId(user.getId());
+		List<ProjectType> types = projectTypeService.findByUserId(user.getId());
+		List<Project> projects = projectService.findByUserId(user.getId());
 		
+		 
 		model.addAttribute("currentPage", "projects");
+		model.addAttribute("types",types);
 		model.addAttribute("user", user);
+		model.addAttribute("projects",projects);
 		model.addAttribute("profile", profile);
 		model.addAttribute("links", links);
 		return "projects";
