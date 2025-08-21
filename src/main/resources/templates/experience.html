@@ -10,22 +10,31 @@
 
 <body>
     <main layout:fragment="content" class="container">
-        <div id="educations" class="form-card" th:if="${educations != null and not #lists.isEmpty(educations)}">
+		<!-- Titulo de la aplicacion -->				
+		<div class="title" id="appTitle">
+			<h1 class="title" th:text="#{home.page.title}"></h1>
+		</div>	
+		
+        <div class="form-card" th:if="${educations != null and not #lists.isEmpty(educations)}">
 			<h2 th:text="#{experience.educations.title}"></h2>
 			
-			<ul>
+			<ul class="educations">
 				<li th:each="education, iStat: ${educations}" th:classappend="${!iStat.last} ? 'educationElement'">
+					<i class="bi bi-mortarboard-fill"></i>
+					<i class="bi bi-arrow-right-short"></i>
 					<span th:text="${education.formattedText}"></span>
 				</li>
 			</ul>
 			
         </div>
 		
-		<div id="experiences" class="form-card" th:if="${experiences != null and not #lists.isEmpty(experiences)}">
+		<div class="form-card" th:if="${experiences != null and not #lists.isEmpty(experiences)}">
 			<h2 th:text="#{experience.experience.title}"></h2>
 					
-			<ul>
+			<ul class="experiences">
 				<li th:each="experience, iStat: ${experiences}" th:classappend="${!iStat.last} ? 'experienceElement'">
+					<i class="bi bi-briefcase-fill"></i>
+					<i class="bi bi-arrow-right-short"></i>
 					<span th:text="${experience.formattedText}"></span>
 				</li>
 			</ul>

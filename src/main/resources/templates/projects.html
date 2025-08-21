@@ -10,59 +10,67 @@
 
 <body>
     <main layout:fragment="content" class="container">
+		<!-- Titulo de la aplicacion -->				
+		<div class="title" id="appTitle">
+			<h1 class="title" th:text="#{home.page.title}"></h1>
+		</div>	
 		
-		<!-- Tabs de proyectos -->
+		<div class="content-projects">
+			<!-- Tabs de proyectos -->
+		
+			<ul class="nav nav-pills mb-4" id="typeProjectsTabs" role="tablist">
+			
+			    <li class="nav-item" role="presentation">
+					<button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true" th:text="#{projects.tabs.all}"></button>
 	
-		<ul class="nav nav-pills justify-content-center mb-4" id="typeProjectsTabs" role="tablist">
-		
-		    <li class="nav-item" role="presentation">
-				<button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true" th:text="#{projects.tabs.all}"></button>
-
-		    </li>
-		
-		    <li class="nav-item" role="presentation" th:each="type : ${types}">
-		        <button class="nav-link" th:id="${type.name} + '-tab'" data-bs-toggle="pill" type="button" th:attr="data-bs-target='#' + ${type.id}, aria-controls=${type.id}" role="tab" aria-selected="false" th:text="${type.name}"></button>
-		    </li>
-		
-		</ul>
-		
-		<!-- Contenido de cada uno de los tabs -->
-		<div class="tab-content" id="projectTabsContent">
-				
-			<!-- Contenido del tab "Todos" -->
-			<div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-				<div class="row">
-					<div class="col-md-4" th:each="project : ${projects}">
-				    	<div class="card mb-3">
-							<img th:if="${project.projectType.imageUrl != null and not #strings.isEmpty(project.projectType.imageUrl)}" th:src="${project.projectType.imageUrl}" class="card-img-top" alt="Imagen proyecto">
-							<img th:unless="${project.projectType.imageUrl != null and not #strings.isEmpty(project.projectType.imageUrl)}"	th:src="#{image.project.default}" class="card-img-top" alt="Imagen proyecto">
-										
-				            <div class="card-body">										
-				            	<h5 class="card-title" th:text="${project.name}"></h5>
-				                <p class="card-text" th:text="${project.description}"></p>
-				            </div>
-				        </div>
-				    </div>
-				</div>
-			</div>
+			    </li>
+			
+			    <li class="nav-item" role="presentation" th:each="type : ${types}">
+			        <button class="nav-link" th:id="${type.name} + '-tab'" data-bs-toggle="pill" type="button" th:attr="data-bs-target='#' + ${type.id}, aria-controls=${type.id}" role="tab" aria-selected="false" th:text="${type.name}"></button>
+			    </li>
+			
+			</ul>
+			
+			<!-- Contenido de cada uno de los tabs -->
+			<div class="tab-content" id="projectTabsContent">
 					
-			<!-- Contenido dinámico para cada categoría -->
-			<div class="tab-pane fade" th:each="type : ${types}" th:id="${type.id}" role="tabpanel" th:attr="aria-labelledby=${type.id} + '-tab'">
-				<div class="row">
-					<div class="col-md-4" th:each="project : ${projects}" th:if="${project.projectType.id} == ${type.id}">
-						<div class="card mb-3">
-							<img th:if="${project.projectType.imageUrl != null and not #strings.isEmpty(project.projectType.imageUrl)}" th:src="${project.projectType.imageUrl}" class="card-img-top" alt="Imagen proyecto">
-							<img th:unless="${project.projectType.imageUrl != null and not #strings.isEmpty(project.projectType.imageUrl)}"	th:src="#{image.project.default}" class="card-img-top" alt="Imagen proyecto">
-
-							<div class="card-body">
-								<h5 class="card-title" th:text="${project.name}"></h5>
-								<p class="card-text" th:text="${project.description}"></p>
+				<!-- Contenido del tab "Todos" -->
+				<div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+					<div class="row">
+						<div class="col-md-4" th:each="project : ${projects}">
+					    	<div class="card mb-3">
+								<img th:if="${project.projectType.imageUrl != null and not #strings.isEmpty(project.projectType.imageUrl)}" th:src="${project.projectType.imageUrl}" class="card-img-top" alt="Imagen proyecto">
+								<img th:unless="${project.projectType.imageUrl != null and not #strings.isEmpty(project.projectType.imageUrl)}"	th:src="#{image.project.default}" class="card-img-top" alt="Imagen proyecto">
+											
+					            <div class="card-body">										
+					            	<h5 class="card-title" th:text="${project.name}"></h5>
+					                <p class="card-text" th:text="${project.description}"></p>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div>
+						
+				<!-- Contenido dinámico para cada categoría -->
+				<div class="tab-pane fade" th:each="type : ${types}" th:id="${type.id}" role="tabpanel" th:attr="aria-labelledby=${type.id} + '-tab'">
+					<div class="row">
+						<div class="col-md-4" th:each="project : ${projects}" th:if="${project.projectType.id} == ${type.id}">
+							<div class="card mb-3">
+								<img th:if="${project.projectType.imageUrl != null and not #strings.isEmpty(project.projectType.imageUrl)}" th:src="${project.projectType.imageUrl}" class="card-img-top" alt="Imagen proyecto">
+								<img th:unless="${project.projectType.imageUrl != null and not #strings.isEmpty(project.projectType.imageUrl)}"	th:src="#{image.project.default}" class="card-img-top" alt="Imagen proyecto">
+	
+								<div class="card-body">
+									<h5 class="card-title" th:text="${project.name}"></h5>
+									<p class="card-text" th:text="${project.description}"></p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+						
 			</div>
-					
+			
+		
 		</div>
     </main>
 </body>

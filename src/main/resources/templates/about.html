@@ -10,13 +10,21 @@
 
 <body>
     <main layout:fragment="content" class="container">
+		<!-- Titulo de la aplicacion -->				
+		<div class="title" id="appTitle">
+			<h1 class="title" th:text="#{home.page.title}"></h1>
+		</div>	
+		
         <div>
+			<!-- Historia -->
 			<div id="history" class="form-card">			
 				<h2 th:text="#{about.history.title}"></h2>
 				<p th:text="${profile.history}"></p>
 			</div>
 			
-			<div th:if="${skillsUser != null and not #lists.isEmpty(skillsUser)}" id="skills">			
+			<!-- Habilidades del usuario con una imagen default -->
+			
+			<div th:if="${skillsUser != null and not #lists.isEmpty(skillsUser)}" class="skills">			
 				<div class="form-card">
 					<h2 th:text="#{about.skills.title}"></h2>
 						<ul>
@@ -32,26 +40,23 @@
 				
 			</div>
 			
+			<!-- Diferentes tecnologias que controla el usuario ordenadas por tipo de tecnologia -->
+			
 			<div th:if="${!#maps.isEmpty(mapUserTechnologies)}" id="userTechnologies" class="form-card">			
 				<h2 th:text="#{about.technologies.title}"></h2>
 				<div class="row my-5">
-					<div class="col-auto" th:each="entry : ${mapUserTechnologies}">
-						<div class="card">
-							<div class="card-body d-flex flex-column justify-content-between">
-								<div>
-									<h3 th:text="${entry.key.name}"></h3>	
-									<div>
-										<span th:each="userTech, iStat : ${entry.value}">
-											<span th:text="${userTech.name}"></span>
-											<span th:if="${!iStat.last}" th:text="#{general.pipe.separator}"></span>
-										</span>
-									</div>										
-								</div>
-							</div>
+					<div class="col-md-4" th:each="entry : ${mapUserTechnologies}">
+						<div class="portfolio-card mb-3">
+							<div class="card-body">
+								<h5 class="card-title" th:text="${entry.key.name}"></h5>	
+								<span class="card-text" th:each="userTech, iStat : ${entry.value}">
+									<span th:text="${userTech.name}"></span>
+									<span th:if="${!iStat.last}" th:text="#{general.pipe.separator}"></span>
+								</span>
+							</div>	
 						</div>
 					</div>
 				</div>
-				
 			</div>	
         </div>
     </main>

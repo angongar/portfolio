@@ -65,7 +65,7 @@ public class Experience {
 		if(this.dateStart != null) {
 			res.append(this.dateStart);
 			// TODO - Necesitamos una clase constantes generales
-			res.append("-");
+			res.append(" - ");
 		}
 		
 		if(this.dateEnd != null) {
@@ -78,7 +78,7 @@ public class Experience {
 		
 		if(this.company != null) {
 			res.append(this.company);
-			res.append(" ");
+			res.append(". ");
 		}
 		
 		if(this.location != null) {
@@ -90,8 +90,6 @@ public class Experience {
 		if(this.description != null) {
 			res.append(this.description);
 		}
-		
-		System.out.println(res.toString());
 		
 		
 		return res.toString();

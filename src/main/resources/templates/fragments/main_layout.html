@@ -3,12 +3,12 @@
 	
 <head th:replace="~{#{link.fragment.head} :: head(${pageTitle})}"></head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="portfolio-body">
     <header th:replace="~{#{link.fragment.header} :: header}"></header>
-	<div class="d-flex mt-4 mb-4">
+	<div class="portfolio-content">
 		<div th:replace="~{#{link.fragment.profile} :: profileCard}"></div>
 			
-		<main layout:fragment="content" class="flex-fill container mt-4"></main>
+		<main layout:fragment="content" class="portfolio-container"></main>
 	</div>
 
     <footer th:replace="~{#{link.fragment.footer} :: footer}"></footer>

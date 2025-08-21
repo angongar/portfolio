@@ -39,12 +39,6 @@ public class ExperienceController {
 		List<Education> educations = educationService.findByUserId(user.getId());
 		List<Experience> experiences = experienceService.findByUserId(user.getId());
 		
-		System.out.println("Formacion");
-		educations.forEach(e -> System.out.println(e.getTitle() + " - Desde " + e.getDateStart() + " hasta " + e.getDateEnd()));
-		System.out.println("Experiencia laboral");
-		experiences.forEach(e -> System.out.println(e.getCompany() + " - Desde " + e.getDateStart() + " hasta " + e.getDateEnd()));
-		
-		
 		model.addAttribute("currentPage", "experience");
 		model.addAttribute("user", user);
 		model.addAttribute("profile", profile);

@@ -1,115 +1,64 @@
-.header, .footer{
-	background-color: #007d86;
-}
-
-
-.title {
-	position: absolute !important;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0,0,0,0);
-	white-space: nowrap;
-	border: 0;
-}
-
-.form-card{
-	padding: 15px 25px 20px 25px;
-	margin: 20px 0px 20px 0px;
-	background-color: var(--bs-light);
-	border-radius: 20px;
-	text-align: center;
-}
-
-.form-card h2 {
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-.form-card p {
-	font-size: 1.1rem;
-	line-height: 1.6;
-	margin: 20px 0;
-}
-
-.form-card a {
-	text-decoration: none;
-	color: inherit;
-	text-align: center;
-}
-
-.form-card img {
-	max-height: 120px;
-}
-
-.form-card .card {
-	width: 18rem;
-	color: inherit;
-	text-align: center;
-}
-
-.image-card{
-	margin: 20px 0px 20px 0px;
-	border-radius: 20px;
-}
-
-
-#skills{
+/* Estilos para el header*/
+.header{
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
-	gap: 2rem;
+	background-color: var(--bs-primary);
 }
 
-#skills .form-card{
-	flex: 1;
-}
-#skills .image-card{
-	flex: 2;
-}
-
-#skills .image-card img{
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-	border-radius: 20px;
-}
-
-#skills ul{
-	margin: 20px 0;
-	display: inline-block;
-	text-align: left;
-}
-
-#skills li{
-	margin: 0.5rem 0;
-}
-
-
-
-.card{
-	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-	transition: box-shadow 0.3s ease;
-	min-height: 220px;
+.header-container{
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
 	justify-content: space-between;
-}
-
-.card:hover{
-	box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-}
-
-#portfolio-footer .container {
-	display: flex;
-	flex-direction: column;
 	align-items: center;
-	gap: 10px;
+	width: 70%;
 }
 
-.links{
+.header img{
+	margin: 0 5px;
+	border-radius: 10px;
+}
+
+.header span{
+	font-size: 1.5rem;
+	color: var(--bs-light);
+}
+
+.header a{
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: var(--bs-light);
+	margin: 0 5px;
+}
+
+.header a:hover{
+	color: var(--bs-dark);
+}
+
+/* Estilos para el footer */
+
+.footer{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	background-color: var(--bs-primary);
+}
+
+.footer-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+}
+
+.footer span{
+	font-size: 1rem;
+	color: var(--bs-light);
+}
+
+.footer ul{
 	display: flex;
 	gap: 30px;
 	list-style: none;
@@ -120,36 +69,123 @@
 	align-items: center;
 }
 
-.links li{
+.footer li{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	border-radius: 10px;
 }
 
-.links a {
+.footer a {
 	text-decoration: none;
 	color: inherit;
 	text-align: center;
+	
 }
 
-.links img {
+.footer li:hover{
+	background-color: var(--secondary-opacity-50);
+}
+
+.footer img{
 	width: 50px;
 	height: 50px;
 	object-fit: contain;
-	margin-bottom: 5px;
+	padding: 5px;
 }
 
-.links div{
+.footer div{
 	margin-top: 5px;
+	
 }
+
+/* Estilos para los navs */
+
+.navbar-nav .nav-link:hover{
+	color: var(--bs-dark);
+}
+
+.nav-pills .nav-link:hover{
+	background-color: var(--secondary-opacity-50);
+}
+
+.navbar-nav .nav-link.active{
+	color: var(--bs-light);
+}
+
+.nav-pills .nav-link.active{
+	background-color: var(--bs-dark);
+}
+
+.nav-pills .nav-link.active:hover{
+	color: var(--bs-dark);
+	background-color: var(--secondary-opacity-50);
+}
+
+.navbar-toggler{
+	color: var(--bs-light);
+	background-color: var(--bs-dark);
+}
+
+.navbar-toggler:hover{
+	color: var(--bs-dark);
+	background-color: var(--secondary-opacity-50);
+}
+
+
+/* Estilos para el submenu */
+
+.submenu{
+	color: var(--bs-light);
+}
+
+.submenu-element{
+	padding: 10px;
+}
+
+.submenu-element:hover{
+	color: var(--bs-dark);
+}
+
+
+/* Estilos para el main_layout */
+
+.portfolio-body{
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh !important;
+	background-color: var(--bs-content);
+}
+
+.portfolio-content{
+	display: flex;
+}
+
+/* Estilos para profile_card */
 
 .profileCard {
-	border-right: 1px solid #ccc;
 	width: 500px;
 	height: 100%;
-	padding: 20px;
-	background-color: #fff;
+	margin: 0 auto;
+	margin-bottom: 20px;
 	font-family: 'Arial', sans-serif;
+}
+
+.profile-content{
+	width: inherit;
+	border-radius: 10px;
+	background-color: var(--secondary-opacity-50);
+	color: var(--bs-dark);
+	margin-left: 40px;
+	padding: 40px;
+}
+
+.profileImg{
+	display: block;
+	width: 400px;
+	height: 90%;
+	object-fit: cover;
+	padding-left: 40px;
 }
 
 .profileCard h2{
@@ -167,17 +203,8 @@
 }
 
 .profileCard p{
-	margin: 30px 0;
 	font-size: 1rem;
 	text-align: left;
-	padding-left: 40px;
-}
-
-.profileImg{
-	display: block;
-	margin: 0 auto 15px;
-	width: 400px;
-	border-radius: 50%;
 	padding-left: 40px;
 }
 
@@ -186,61 +213,287 @@
 }
 
 .profileLinks a{
-	margin: 0 10px;
+	display: flex;
+	align-items: center;
+	margin: 10px 0;
 	text-decoration: none;
-	color:#0366d6;
+	color: var(--bs-dark);
 }
 
-.linkIcon{
+.profileLinks a:hover{
+	color: var(--secondary-opacity-50);
+}
+
+.profileLinks img{
 	width: 24px;
 	height: 24px;
 	object-fit: contain;
+	margin-right: 24px;
 }
 
-#educations ul,
-#experiences ul{
-	border-left: 1px solid #ccc;
+/* Estilo para las card dentro del contenido */
+
+.portfolio-container{
+	flex: 1 1 auto;
+	width: 100%;
+	padding: 0 40px;
+	margin-left: 20px;
 }
 
-#educations li,
-#experiences li{
+.title {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 15px 25px 20px 25px;
+	overflow: hidden;
+	border: 0;
+}
+
+.form-card{
+	margin-left: 20px;
+	margin-bottom: 20px;
+	background-color: var(--secondary-opacity-50);
+	border-radius: 10px;
+	text-align: center;
+	color: var(--bs-dark);
+}
+
+.form-card h2{
+	padding: 10px;
+	font-weight: bold;
+	background-color: var(--bs-primary);
+	color: var(--bs-light);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.form-card p {
+	padding: 10px;
+	font-size: 1.1rem;
+	line-height: 1.6;
+	margin: 20px 0;
+	padding-bottom: 40px;
+}
+
+.form-card a {
+	text-decoration: none;
+	text-align: center;
+	margin-bottom: 20px;
+	background-color: var(--bs-dark);
+	color: var(--bs-light);
+}
+
+.form-card a:hover{
+	background-color: var(--bs-secondary);
+	color: var(--bs-dark);
+}
+
+.form-card img {
+	max-height: 120px;
+}
+
+.form-card ul{
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 10px;
+	
+}
+
+.form-card li{
 	padding: 20px 0;
 }
 
-#educations ul, li,
-#experiences ul, li{
+.form-card ul, li{
 	margin: 20px 0;
 	text-align: left;
 	text-decoration: none;
 }
 
+/* Estilos para los cards */
+.card,
+.portfolio-card{
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	transition: box-shadow 0.3s ease;
+	min-height: 220px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: var(--bs-secondary);
+	color: var(--bs-dark);
+}
+
+.portfolio-card{
+	border-radius: 10px;
+	margin: 0 40px;
+}
+
+.portfolio-card:hover{
+	background-color: var(--primary-opacity-50);
+}
+
+.portfolio-card h5{
+	padding: 10px;
+	font-weight: bold;
+	color: var(--bs-dark);
+	text-align: left;
+}
+
+.portfolio-card img {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.portfolio-card p, span{
+	font-size: 1.1rem;
+	line-height: 1.6;
+	color: var(--bs-dark);
+	text-align: left;
+}
+
+.portfolio-card:hover,
+.card:hover{
+	box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+
+.card-img-top {
+	height: 260px;
+	object-fit: cover;
+	width: 100%;
+}
+
+.image-card{
+	margin-bottom: 20px;
+	border-radius: 20px;
+}
+
+/* Estilos para card skills */
+.skills{
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.skills .form-card{
+	flex: 1;
+}
+.skills .image-card{
+	flex: 2;
+}
+
+.skills .image-card img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	border-radius: 20px;
+}
+
+.skills ul{
+	margin: 20px 0;
+	display: inline-block;
+	text-align: left;
+}
+
+.skills li{
+	margin: 0.5rem 0;
+}
+
+
+/* Estilos para los elementos de las lista de experiencia */
+
+.educations, .experiences{
+	list-style: none;
+}
 
 .educationElement,
 .experienceElement{
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid var(--bs-dark);
 }
+
+/* Estilos para la pantalla proyectos */
+
+.content-projects{
+	margin-left: 20px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	padding: 20px;
+	background-color: var(--secondary-opacity-50);
+}
+
+.content-projects ul{
+	justify-content: center;
+}
+
+.content-projects li{
+	margin: 0 5px;
+}
+
+/* Estilos para el formulario de contacto */
 
 .contact-form{
 	width: 60%;
 	margin: 0 auto;
 }
 
-.form-textfield,
-.form-textarea{
-	border-radius: 20px;
-	width: 80%;
-	margin: 30px 0;
-	padding: 5px;
+.contact-form input, textarea{
+	margin-bottom: 20px;
+	padding: 10px;
+	font-size: large;
+	line-height: 1.5;
+	color: var(--bs-dark);
+	background-color: var(--bs-content);
+	width: 90%;
+	border: 1px solid var(--bs-dark);
+	border-radius: 10px;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+input::placeholder, textarea::placeholder{
+  color: var(--primary-opacity-50);   
+  opacity: 1;    
+}
+
+input:focus, textarea:focus{
+  border: 2px solid var(--bs-dark);  
+  outline: none;          
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px var(--bs-content) inset; 
+  -webkit-text-fill-color: var(--bs-dark);
+  font-size: large;             
+  transition: background-color 5000s ease-in-out 0s; 
+}
+
+.contact-form button {
+	text-decoration: none;
+	text-align: center;
+	padding: 6px 12px;
+	font-size: 16px;
+	line-height: 1.5;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	background-color: var(--bs-dark);
+	color: var(--bs-light);
+	border: 1px solid transparent;
+	transition: background-color 0.15s, color 0.15s;
+	cursor: pointer;
+}
+
+.contact-form button:hover{
+	background-color: var(--bs-secondary);
+	color: var(--bs-dark);
 }
 
 .success{
 	width: 100%;
-    background-color: #0ce3df;
+    background-color: var(--bs-success-bg);
     height: 80px;
     text-align: center;
-    border: 1px solid #007d86;
+    border: 1px solid var(--bs-success);
     border-radius: 20px;
-    color: #007d86;
+    color: var(--bs-success);
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -250,24 +503,19 @@
 .error {
 	width: 100%;
     text-align: center;
-    border: 1px solid #EA464C;
+    border: 1px solid var(--bs-error);
     border-radius: 20px;
-    color: #007d86;
+    color: var(--bs-error);
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--bs-error-bg);
 }
 
 .success span,
 .error ul{
 	width: 90%;
-}
-
-.card-img-top {
-	height: 260px;
-	object-fit: cover;
-	width: 100%;
 }
 
 
