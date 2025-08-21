@@ -62,7 +62,7 @@ public class Education {
 		if(this.dateStart != null) {
 			res.append(this.dateStart);
 			// TODO - Necesitamos una clase constantes generales
-			res.append("-");
+			res.append(" - ");
 		}
 		
 		if(this.dateEnd != null) {

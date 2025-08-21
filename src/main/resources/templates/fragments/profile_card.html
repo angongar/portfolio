@@ -1,19 +1,20 @@
 <!-- /* profile_card.html */ -->
 <div th:fragment="profileCard">
 	<div class="profileCard">
-		<img th:if="${profile.imageUrl != null and !#strings.isEmpty(profile.imageUrl)}" th:src="@{${profile.imageUrl}}" alt="#{profile.image.alt}" class="profileImg" />
-		<img th:unless="${profile.imageUrl != null and !#strings.isEmpty(profile.imageUrl)}" th:src="@{#{image.profile.default}}" alt="#{profile.image.alt}" class="profileImg" />
-		<h2 th:text="${user.name + ' ' + user.lastname}"></h2>
-		<h3 th:if="${user.jobTitle != null and not #strings.isEmpty(user.jobTitle)}" th:text="${user.jobTitle}"></h3>
-		<h3 th:if="${user.location != null and not #strings.isEmpty(user.location)}" th:text="${user.location}"></h3>
-		<p th:text="${profile.bio}"></p>
-		<div th:if="${links != null and not #lists.isEmpty(links)}" class="profileLinks">
-			<a th:each="link : ${links}" th:href="${link.url}" target="_blank" class="d-flex align-items-center mb-2 text-decoration-none">
-				<img th:if="${link.iconUrl != null and link.iconUrl != ''}" class="linkIcon me-2" th:src="@{${link.iconUrl}}" alt="#{image.logo.alt}"/>
-				<div th:text="${link.name}" class="linkText"></div>
-			</a>
+		<div class="profile-content">
+			<img th:if="${profile.imageUrl != null and !#strings.isEmpty(profile.imageUrl)}" th:src="@{${profile.imageUrl}}" th:alt="#{profile.image.alt}" th:title="#{profile.image.title}" class="profileImg" />
+			<img th:unless="${profile.imageUrl != null and !#strings.isEmpty(profile.imageUrl)}" th:src="@{#{image.profile.default}}" th:alt="#{profile.image.alt}" th:title="#{profile.image.title}" class="profileImg" />
+			<h2 th:text="${user.name + ' ' + user.lastname}"></h2>
+			<h3 th:if="${user.jobTitle != null and not #strings.isEmpty(user.jobTitle)}" th:text="${user.jobTitle}"></h3>
+			<h3 th:if="${user.location != null and not #strings.isEmpty(user.location)}" th:text="${user.location}"></h3>
+			<p th:text="${profile.bio}"></p>
+			<div th:if="${links != null and not #lists.isEmpty(links)}" class="profileLinks">
+				<a th:each="link : ${links}" th:href="${link.url}" target="_blank">
+					<img th:if="${link.iconUrl != null and link.iconUrl != ''}" class="me-2" th:src="@{${link.iconUrl}}" th:alt="${link.name}" th:title="${link.name}"/>
+					<span th:text="${link.name}"></span>
+				</a>
+			</div>
 		</div>
-		
 	</div>
 	
 </div>

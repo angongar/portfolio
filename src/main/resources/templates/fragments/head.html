@@ -1,11 +1,11 @@
 <!--/* head.html */-->
-
 <head th:fragment="head(pageTitle)">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" type="text/css" th:href="@{#{link.css.bootstrap}}">		
+	<link rel="stylesheet" type="text/css" th:href="@{#{link.css.bootstrap}}">	
+	<link rel="stylesheet" type="text/css" th:href="@{#{link.css.bootstrap.icons}}">	
+	<link rel="stylesheet" type="text/css" th:href="@{#{link.css.appcolors}}">	
 	<link rel="stylesheet" type="text/css" th:href="@{#{link.css.general}}">
-	<link rel="stylesheet" type="text/css" th:href="@{#{link.css.bootstrap.icons}}">
 	<title th:text="${pageTitle}"></title>
 	<link rel="icon" type="image/png" th:href="@{#{image.logo.tonidev.32x32}}"/>
 </head>

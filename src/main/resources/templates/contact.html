@@ -10,27 +10,32 @@
 
 <body>
     <main layout:fragment="content" class="container">
+		<!-- Formulario de contacto  -->
 		<form th:action="@{/contact}" method="post" th:object="${contactDto}">
 			<div th:replace="~{#{link.success.form} :: successForm}"></div>
 			<div th:replace="~{#{link.error.form} :: errorForm}"></div>
-			<h1 class="title" th:text="#{home.page.title}"></h1>
 			
 	        <div class="form-card contact-form">
+					<!-- Titulo de la aplicacion -->				
+					<div class="title" id="appTitle">
+						<h1 class="title" th:text="#{home.page.title}"></h1>
+					</div>	
+					
 					<h2 th:text="#{contact.form.title}" class="mb-4"></h2>
 					<div>
-						<input class="form-control mb-4" type="text" th:field="*{name}" th:placeholder="#{contact.form.name}" th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'"/>
+						<input type="text" th:field="*{name}" th:placeholder="#{contact.form.name}" th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'" autocomplete="off"/>
 					</div>				
 					<div>
-						<input class="form-control mb-4" type="email" th:field="*{email}" th:placeholder="#{contact.form.email}" th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'" />				
+						<input type="email" th:field="*{email}" th:placeholder="#{contact.form.email}" th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'" autocomplete="off" />				
 					</div>
 					<div>
-						<input class="form-control mb-4" type="text" th:field="*{subject}" th:placeholder="#{contact.form.subject}" th:classappend="${#fields.hasErrors('subject')} ? 'is-invalid'" />				
+						<input type="text" th:field="*{subject}" th:placeholder="#{contact.form.subject}" th:classappend="${#fields.hasErrors('subject')} ? 'is-invalid'" autocomplete="off" />				
 					</div>
 					<div>
-						<textarea rows="3" class="form-control mb-4" th:field="*{message}" type="text" th:placeholder="#{contact.form.message}" th:classappend="${#fields.hasErrors('message')} ? 'is-invalid'"></textarea>								
+						<textarea rows="3" th:field="*{message}" type="text" th:placeholder="#{contact.form.message}" th:classappend="${#fields.hasErrors('message')} ? 'is-invalid'" autocomplete="off"></textarea>								
 					</div>
 					<div>
-						<button class="btn btn-primary mb-4" type="submit" th:text="#{contact.form.send}" />												
+						<button type="submit" th:text="#{contact.form.send}" />												
 					</div>			
 	        </div>
 		</form>

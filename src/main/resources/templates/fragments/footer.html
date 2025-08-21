@@ -1,15 +1,33 @@
 <!--/* footer.html */-->
-<footer th:fragment="footer" id="portfolio-footer" class="bg-dark text-center py-3">
-	<div class="container">
-    	<p class="text-primary" th:text="#{footer.info.text}"></p>
-		<div th:if="${links != null and not #lists.isEmpty(links)}">
-			<ul class="links">
+<footer th:fragment="footer" id="portfolio-footer" class="footer py-3">
+	<div class="footer-container">
+		<!-- Muestra informacion del autor -->
+    	<span th:text="#{footer.info.text}"></span>		
+		<!-- Separador -->
+		<span th:text="#{general.pipe.separator}" ></span>
+		
+		<!-- Muestra las diferentes redes del usuario -->
+		<div>
+			<ul class="links" th:if="${links != null and not #lists.isEmpty(links)}">
 				<li th:each="link : ${links}">
 					<a th:href="${link.url}" target="_blank">
-						<img th:if="${link.iconUrl != null and link.iconUrl != ''}" class="text-primary" th:src="@{${link.iconUrl}}" alt="#{image.logo.alt}"/>
-						<div th:text="${link.name}" class="text-primary"></div>
+						<img th:if="${link.iconUrl != null and link.iconUrl != ''}" th:src="@{${link.iconUrl}}" th:alt="${link.name}" th:title="${link.name}"/>
 					</a>
 				</li>
+			</ul>
+		</div>
+		
+		<!-- Muestra informacion del autor -->
+		<span th:text="#{general.pipe.separator}" th:if="${links != null and not #lists.isEmpty(links)}"></span>
+		
+		<!-- Submenu de la web -->
+		<div>
+			<ul class="submenu">
+				<li class="submenu-element"><a th:href="#{link.page.home}" th:text="#{menu.home.text}"></a></li>
+				<li	class="submenu-element"><a th:href="#{link.page.about}" th:text="#{menu.about.text}"></a></li>
+				<li	class="submenu-element"><a th:href="#{link.page.experience}" th:text="#{menu.experience.text}"></a></li>
+				<li	class="submenu-element"><a th:href="#{link.page.projects}" th:text="#{menu.projects.text}"></a></li>
+				<li	class="submenu-element"><a th:href="#{link.page.contact}" th:text="#{menu.contact.text}"></a></li>
 			</ul>
 		</div>
 	</div>
