@@ -11,9 +11,13 @@
 <body>
     <main layout:fragment="content" class="container">
 		<!-- Formulario de contacto  -->
-		<form th:action="@{/contact}" method="post" th:object="${contactDto}">
+		<form id="contact-form" th:action="@{/contact}" method="post" th:object="${contactDto}">
 			<div th:replace="~{#{link.success.form} :: successForm}"></div>
 			<div th:replace="~{#{link.error.form} :: errorForm}"></div>
+			
+			<div id="spinner-loading" class="spinner-loading">
+			  <div class="spinner-loading-content"></div>
+			</div>
 			
 	        <div class="form-card contact-form">
 					<!-- Titulo de la aplicacion -->				
@@ -39,6 +43,16 @@
 					</div>			
 	        </div>
 		</form>
+		
+		<script>
+				var contactForm = document.getElementById('contact-form');
+				var spinner = document.getElementById('spinner-loading');
+				
+				contactForm.addEventListener('submit', function() {
+					spinner.style.display = 'flex';
+				});
+		</script>
+		
     </main>
 </body>
 </html>
