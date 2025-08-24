@@ -180,12 +180,16 @@
 	padding: 40px;
 }
 
+.profile-image-wrapper{
+	display: flex;
+    justify-content: center; /* centra horizontalmente */
+}
+
 .profileImg{
-	display: block;
 	width: 400px;
 	height: 90%;
 	object-fit: cover;
-	padding-left: 40px;
+	border-radius: 50%;
 }
 
 .profileCard h2{
@@ -304,7 +308,6 @@
 }
 
 .form-card ul, li{
-	margin: 20px 0;
 	text-align: left;
 	text-decoration: none;
 }
@@ -396,6 +399,7 @@
 }
 
 .skills li{
+	padding: 0;
 	margin: 0.5rem 0;
 }
 
