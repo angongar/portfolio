@@ -2,8 +2,10 @@
 <div th:fragment="profileCard">
 	<div class="profileCard">
 		<div class="profile-content">
-			<img th:if="${profile.imageUrl != null and !#strings.isEmpty(profile.imageUrl)}" th:src="@{${profile.imageUrl}}" th:alt="#{profile.image.alt}" th:title="#{profile.image.title}" class="profileImg" />
-			<img th:unless="${profile.imageUrl != null and !#strings.isEmpty(profile.imageUrl)}" th:src="@{#{image.profile.default}}" th:alt="#{profile.image.alt}" th:title="#{profile.image.title}" class="profileImg" />
+			<div class="profile-image-wrapper">
+				<img th:if="${profile.imageUrl != null and !#strings.isEmpty(profile.imageUrl)}" th:src="@{${profile.imageUrl}}" th:alt="#{profile.image.alt}" th:title="#{profile.image.title}" class="profileImg" />
+				<img th:unless="${profile.imageUrl != null and !#strings.isEmpty(profile.imageUrl)}" th:src="@{#{image.profile.default}}" th:alt="#{profile.image.alt}" th:title="#{profile.image.title}" class="profileImg" />			
+			</div>
 			<h2 th:text="${user.name + ' ' + user.lastname}"></h2>
 			<h3 th:if="${user.jobTitle != null and not #strings.isEmpty(user.jobTitle)}" th:text="${user.jobTitle}"></h3>
 			<h3 th:if="${user.location != null and not #strings.isEmpty(user.location)}" th:text="${user.location}"></h3>
