@@ -66,7 +66,7 @@ public class ContactController {
 		// TODO - Necesitamos una clase de constantes generales.
 		String content = "¡" + contactDto.getName() + " (" + contactDto.getEmail() + ") quiere ponerse en contacto contigo desde el portfolio!\n\n" + contactDto.getMessage();
 		
-		sendMailService.sendMail(contactDto.getEmail(), contactDto.getSubject(), content);
+		sendMailService.sendMail(user.getEmail(), contactDto.getSubject(), content);
 		
 		redirectAttributes.addFlashAttribute("successMessage", "Gracias por ponerse en contacto conmigo. Intentaré responder con la mayor brevedad posible.");
 		return "redirect:/contact";

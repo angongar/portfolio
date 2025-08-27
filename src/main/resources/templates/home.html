@@ -26,14 +26,14 @@
 		<div id="presentation" class="form-card">	
 			<h2 th:text="#{home.presentation.title}"></h2>
 			<p th:text="${profile.presentation}"></p>
-			<a class="btn" th:href="@{#{link.page.about}}" th:text="#{home.link.about}"></a>	
+			<a class="btn link-spinner" th:href="@{#{link.page.about}}" th:text="#{home.link.about}"></a>	
 		</div>
 		
 		<!-- Resumen experiencia -->
 		<div id="experience" class="form-card">		
 			<h2 th:text="#{home.experience.title}"></h2>
 			<p th:text="${profile.experience}"></p>
-			<a class="btn" th:href="@{#{link.page.experience}}" th:text="#{home.link.experience}"></a>				
+			<a class="btn link-spinner" th:href="@{#{link.page.experience}}" th:text="#{home.link.experience}"></a>				
 		</div>
 		
 		<!-- Logros -->
@@ -45,16 +45,16 @@
 		<div id="lastProjects" class="form-card" th:if="${projects != null and not #lists.isEmpty(projects)}">
 			<h2 th:text="#{home.projects.title}"></h2>
 			
-			<div class="row my-5">
-				<div class="col-md-4" th:each="project : ${projects}">
-					<div class="portfolio-card mb-3">
+			<div class="home-projects-content my-5">
+				<div class="home-projects-card" th:each="project : ${projects}">
+					<div class="portfolio-card h-100">
 						<!-- Muestra la card con enlace al proyecto-->
 						<div th:if="${project.url != null and project.url != ''}">
 							<a th:href="${project.url}" target="_blank">
 								<img th:if="${project.projectType.imageUrl != null and project.projectType.imageUrl != ''}"
-									th:src="${project.projectType.imageUrl}" th:alt="#{home.projects.image.alt}" class="card-img-top"/>
+									th:src="${project.projectType.imageUrl}" th:alt="#{home.projects.image.alt}" class="card-img-top" loading="lazy"/>
 								<img th:unless="${project.projectType.imageUrl != null and project.projectType.imageUrl != ''}"
-									th:src="#{image.project.default}" th:alt="#{home.projects.image.alt}" class="card-img-top"/>								
+									th:src="#{image.project.default}" th:alt="#{home.projects.image.alt}" class="card-img-top" loading="lazy"/>								
 								
 									
 								<div class="card-body">
@@ -67,9 +67,9 @@
 						<!-- Muestra la card sin enlace al proyecto -->							
 						<div th:unless="${project.url != null and project.url != ''}">
 							<img th:if="${project.projectType.imageUrl != null and project.projectType.imageUrl != ''}"
-								th:src="${project.projectType.imageUrl}" th:alt="#{home.projects.image.alt}" class="card-img-top"/>
+								th:src="${project.projectType.imageUrl}" th:alt="#{home.projects.image.alt}" class="card-img-top" loading="lazy"/>
 							<img th:unless="${project.projectType.imageUrl != null and project.projectType.imageUrl != ''}"
-								th:src="#{image.project.default}" th:alt="#{home.projects.image.alt}" class="card-img-top"/>								
+								th:src="#{image.project.default}" th:alt="#{home.projects.image.alt}" class="card-img-top" loading="lazy"/>								
 															
 								<div class="card-body">
 									<h5 class="card-title" th:text="${project.name}"></h5>
@@ -80,7 +80,7 @@
 				</div>
 			</div>
 			
-			<a class="btn" th:href="@{#{link.page.projects}}" th:text="#{home.link.projects}"></a>									
+			<a class="btn link-spinner" th:href="@{#{link.page.projects}}" th:text="#{home.link.projects}"></a>									
 		</div>
 		
 		<!-- Objetivos ano -->
@@ -90,7 +90,7 @@
 		-->
 		<!-- Contact -->
 		<!-- <div id="contact" class="form-card">		
-			<a class="btn" th:href="@{#{link.page.contact}}" th:text="#{home.link.contact}"></a>												
+			<a class="btn link-spinner" th:href="@{#{link.page.contact}}" th:text="#{home.link.contact}"></a>												
 		</div>
 		-->
     </main>

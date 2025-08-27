@@ -24,5 +24,10 @@ public class ProjectServiceImpl implements ProjectService {
 	public List<Project> findByTechnologyId(Long idtechnology) {
 		return projectRepository.findByTechnologyId(idtechnology);
 	}
+	
+	@Override
+	public List<Project> getLastUserProjects(Long iduser) {
+		return projectRepository.getLastUserProjects(iduser);
+	}
 
 }
