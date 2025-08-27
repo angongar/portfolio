@@ -9,5 +9,7 @@ public interface ProjectService {
 	List<Project> findByUserId(Long iduser);
 	
 	List<Project> findByTechnologyId(Long idtechnology);
+	
+	List<Project> getLastUserProjects(Long iduser);
 
 }

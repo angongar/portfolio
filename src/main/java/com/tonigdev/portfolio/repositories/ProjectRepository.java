@@ -27,5 +27,14 @@ public interface ProjectRepository extends JpaRepository<Project, Long>{
 	 */
 	@Query("SELECT p FROM Project p JOIN p.technologies t WHERE t.id = :idtechnology")
 	public List<Project> findByTechnologyId(@Param("idtechnology") Long idtechnology);
+	
+	/**
+	 * Busqueda de los ultimos proyectos del usuario
+	 * @param iduser
+	 * @return devuelve listado de proyectos de un usuario
+	 */
+	
+	@Query("SELECT p FROM Project p ORDER BY p.createdAt DESC LIMIT 3")
+	public List<Project> getLastUserProjects(@Param("iduser") Long iduser);
 
 }

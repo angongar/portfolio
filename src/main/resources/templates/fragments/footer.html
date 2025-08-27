@@ -4,31 +4,39 @@
 		<!-- Muestra informacion del autor -->
     	<span th:text="#{footer.info.text}"></span>		
 		<!-- Separador -->
-		<span th:text="#{general.pipe.separator}" ></span>
+		<span class="footer-separator" th:text="#{general.pipe.separator}" ></span>
 		
 		<!-- Muestra las diferentes redes del usuario -->
 		<div>
 			<ul class="links" th:if="${links != null and not #lists.isEmpty(links)}">
 				<li th:each="link : ${links}">
 					<a th:href="${link.url}" target="_blank">
-						<img th:if="${link.iconUrl != null and link.iconUrl != ''}" th:src="@{${link.iconUrl}}" th:alt="${link.name}" th:title="${link.name}"/>
+						<img th:if="${link.iconUrl != null and link.iconUrl != ''}" th:src="@{${link.iconUrl}}" th:alt="${link.name}" th:title="${link.name}" loading="lazy"/>
 					</a>
 				</li>
 			</ul>
 		</div>
 		
 		<!-- Muestra informacion del autor -->
-		<span th:text="#{general.pipe.separator}" th:if="${links != null and not #lists.isEmpty(links)}"></span>
+		<span class="footer-separator" th:text="#{general.pipe.separator}" th:if="${links != null and not #lists.isEmpty(links)}"></span>
 		
-		<!-- Submenu de la web -->
-		<div>
-			<ul class="submenu">
-				<li class="submenu-element"><a th:href="#{link.page.home}" th:text="#{menu.home.text}"></a></li>
-				<li	class="submenu-element"><a th:href="#{link.page.about}" th:text="#{menu.about.text}"></a></li>
-				<li	class="submenu-element"><a th:href="#{link.page.experience}" th:text="#{menu.experience.text}"></a></li>
-				<li	class="submenu-element"><a th:href="#{link.page.projects}" th:text="#{menu.projects.text}"></a></li>
-				<li	class="submenu-element"><a th:href="#{link.page.contact}" th:text="#{menu.contact.text}"></a></li>
-			</ul>
+		<div class="navbar navbar-expand-lg navbar-dark header py-3 mb-4">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#footerNav"
+		      	aria-controls="footerNav" aria-expanded="false" aria-label="Toggle navigation">
+		      	<span class="navbar-toggler-icon"></span>
+			</button>
+		
+		
+			<!-- Submenu de la web -->
+			<div class="collapse navbar-collapse" id="footerNav">
+				<ul class="navbar-nav ms-auto nav-pills submenu">
+					<li class="submenu-element"><a th:href="#{link.page.home}" th:text="#{menu.home.text}" class="link-spinner"></a></li>
+					<li	class="submenu-element"><a th:href="#{link.page.about}" th:text="#{menu.about.text}" class="link-spinner"></a></li>
+					<li	class="submenu-element"><a th:href="#{link.page.experience}" th:text="#{menu.experience.text}" class="link-spinner"></a></li>
+					<li	class="submenu-element"><a th:href="#{link.page.projects}" th:text="#{menu.projects.text}" class="link-spinner"></a></li>
+					<li	class="submenu-element"><a th:href="#{link.page.contact}" th:text="#{menu.contact.text}" class="link-spinner"></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	

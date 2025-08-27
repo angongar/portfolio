@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/home")
+@RequestMapping("/")
 public class HomeController {
 	
 	private final UserService userService;
@@ -33,7 +33,7 @@ public class HomeController {
 		
 		User user = userService.getUser().get();
 		Profile profile = profileService.findByUserId(user.getId()).get();
-		List<Project> projects = projectService.findByUserId(user.getId());
+		List<Project> projects = projectService.getLastUserProjects(user.getId());
 		List<ExternalLink> links = externalLinkService.findByUserId(user.getId());
 
 		model.addAttribute("currentPage", "home");

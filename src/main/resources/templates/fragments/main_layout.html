@@ -5,6 +5,11 @@
 
 <body class="portfolio-body">
     <header th:replace="~{#{link.fragment.header} :: header}"></header>
+	
+	<div id="spinner-loading" class="spinner-loading">
+	  <div class="spinner-loading-content"></div>
+	</div>
+	
 	<div class="portfolio-content">
 		<div th:replace="~{#{link.fragment.profile} :: profileCard}"></div>
 			
@@ -14,6 +19,6 @@
     <footer th:replace="~{#{link.fragment.footer} :: footer}"></footer>
 	
 	<script th:src="@{#{link.js.bootstrap}}"></script>	
-	
+	<script th:src="@{#{link.js.spinner}}"></script>
 </body>
 </html>
